@@ -28,28 +28,70 @@ export default function App() {
 
   const toggleTheme = () => setTheme(prev => (prev === "light" ? "dark" : "light"));
 
-  return (
-    <div
-      className={`${theme === "light" ? "bg-gray-100 text-gray-900" : "bg-black text-gray-300"} min-h-screen p-10 transition-colors duration-500`}
-    >
-      <header className="flex justify-between items-center mb-6">
-        <Header theme={theme} />
-        <button
-          onClick={toggleTheme}
-          className="bg-red-900 text-white px-4 py-2 rounded hover:bg-red-700 transition-all"
-        >
-          {theme === "light" ? "Dark Mode" : "Light Mode"}
-        </button>
-      </header>
+  const themeClasses = theme === "light" 
+    ? "bg-gray-100 text-black" 
+    : "bg-[#050000] text-white";
 
-      <Profile theme={theme} />
-      <Education theme={theme} />
-      <Skills theme={theme} />
-      <Experience theme={theme} />
-      <Languages theme={theme} />
-      <Reviews theme={theme} />
-      <ContactForm theme={theme} />
-      <Footer theme={theme} />
+  const sidebarBg = theme === "light" 
+    ? "bg-[#FADBD8]"
+    : "bg-[#3e1e1e]";
+
+  const mainBg = theme === "light" 
+    ? "bg-white" 
+    : "bg-[#1a0a0a]";
+
+  return (
+    <div className={`${themeClasses} min-h-screen flex justify-center items-start p-4 md:p-10 transition-colors duration-500`}>
+      
+      <div className={`flex flex-col md:flex-row w-full max-w-[900px] shadow-2xl min-h-[1100px] overflow-hidden`}>
+        
+        <aside className={`${sidebarBg} w-full md:w-[35%] p-8 transition-colors duration-500`}>
+          <div className="space-y-8">
+            <section>
+              <h2 className="text-xs font-bold tracking-widest uppercase border-b border-red-900/20 pb-2 mb-4">Objective</h2>
+              <p className="text-sm leading-relaxed">
+                To obtain a challenging position where my technical skills can drive innovation and excellence.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-xs font-bold tracking-widest uppercase border-b border-red-900/20 pb-2 mb-4">Contact</h2>
+              <Header theme={theme} />
+              <button
+                onClick={toggleTheme}
+                className={`mt-6 w-full py-2 text-[13px] font-bold uppercase tracking-widest border transition-all duration-300
+                  ${theme === "light" 
+                    ? "border-red-900 text-red-900 hover:bg-red-900 hover:text-white" 
+                    : "border-red-200 text-red-200 hover:bg-red-200 hover:text-red-900"
+                  }`}
+              >
+                {theme === "light" ? "Switch Theme" : "Switch Theme"}
+              </button>
+            </section>
+
+            <Education theme={theme} />
+            <Skills theme={theme} />
+            <Languages theme={theme} />
+          </div>
+        </aside>
+
+        <main className={`${mainBg} w-full md:w-[65%] p-10 md:p-14 transition-colors duration-500`}>
+          <header className="mb-10">
+            <Profile theme={theme} />
+          </header>
+
+          <div className="space-y-10">
+            <Experience theme={theme} />
+            <Reviews theme={theme} />
+            <ContactForm theme={theme} />
+          </div>
+
+          <footer className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+            <Footer theme={theme} />
+          </footer>
+        </main>
+
+      </div>
     </div>
   );
 }

@@ -5,9 +5,13 @@ export default function Reviews({ theme }) {
   const variantNumber = 6;
 
   const isLight = theme === "light";
-  const cardBg = isLight ? "bg-white" : "bg-gray-900";
-  const textColor = isLight ? "text-gray-900" : "text-gray-200";
-  const emailColor = isLight ? "text-gray-600" : "text-gray-400";
+  
+  // Адаптуємо кольори під основну білу/чорну колонку
+  const titleColor = isLight ? "text-black" : "text-white";
+  const cardBg = isLight ? "bg-red-50/30" : "bg-[#1f0d0d]"; // Дуже легкий винний відтінок
+  const textColor = isLight ? "text-gray-800" : "text-red-50/90";
+  const accentColor = isLight ? "text-red-900" : "text-red-400";
+  const borderColor = isLight ? "border-black" : "border-red-900";
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -24,18 +28,30 @@ export default function Reviews({ theme }) {
   }, [variantNumber]);
 
   return (
-    <section className="mt-10">
-      <h2 className="text-2xl font-semibold text-red-700 border-l-4 border-red-900 pl-3 mb-3">Reviews</h2>
-      {comments.map(comment => (
-        <div 
-          key={comment.id} 
-          className={`p-4 mb-4 border border-red-900 rounded-md transition-colors duration-500 ${cardBg} ${textColor}`}
-        >
-          <h3 className="font-semibold">{comment.name}</h3>
-          <p className={`text-sm ${emailColor} transition-colors duration-500`}>Email: {comment.email}</p>
-          <p className="mt-2">{comment.body}</p>
-        </div>
-      ))}
+    <section className="mt-12">
+      {/* Заголовок у загальному стилі правої колонки */}
+      <h2 className={`text-sm font-bold tracking-[0.2em] uppercase border-b-2 ${borderColor} pb-2 mb-8 ${titleColor}`}>
+        Employer Comments
+      </h2>
+
+      <div className="grid gap-6">
+        {comments.map(comment => (
+          <div 
+            key={comment.id} 
+            className={`p-6 border-l-4 border-red-900 ${cardBg} transition-all duration-500 hover:shadow-md group`}
+          >
+            <h3 className={`font-bold uppercase text-[14px] tracking-tight ${accentColor}`}>
+              {comment.name}
+            </h3>
+            <p className={`text-[11px] font-mono italic opacity-60 mb-3 ${isLight ? 'text-gray-600' : 'text-red-200'}`}>
+              {comment.email}
+            </p>
+            <p className={`text-[14px] leading-relaxed italic ${textColor}`}>
+              "{comment.body}"
+            </p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

@@ -6,7 +6,11 @@ export default function Footer({ theme }) {
     platform: ""
   });
 
-  const textColor = theme === "light" ? "text-gray-600" : "text-gray-400";
+  const isLight = theme === "light";
+  
+  const textColor = isLight ? "text-gray-400" : "text-red-900/40";
+  const copyrightColor = isLight ? "text-gray-600" : "text-red-200/60";
+  const borderColor = isLight ? "border-gray-200" : "border-red-900/30";
 
   useEffect(() => {
     const info = {
@@ -23,10 +27,19 @@ export default function Footer({ theme }) {
   }, []);
 
   return (
-    <footer className={`mt-12 pt-6 border-t border-red-900 ${textColor} text-sm text-center transition-colors duration-500`}>
-      <p>© 2026 Solomiia Vorobel</p>
-      <p>User Agent: {systemInfo.userAgent}</p>
-      <p>Platform: {systemInfo.platform}</p>
+    <footer className={`mt-16 pt-8 border-t ${borderColor} transition-colors duration-500`}>
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-4">
+        <div className={`${copyrightColor} text-[11px] uppercase tracking-widest font-medium`}>
+          © 2026 Solomiia Vorobel
+        </div>
+
+        <div className={`${textColor} text-[10px] leading-relaxed max-w-[400px] text-center md:text-right font-mono italic`}>
+          <p>System context: {systemInfo.platform}</p>
+          <p className="opacity-70 truncate" title={systemInfo.userAgent}>
+            {systemInfo.userAgent}
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }

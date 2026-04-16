@@ -1,21 +1,44 @@
 export default function Header({ theme }) {
   const isLight = theme === "light";
-  const textColor = isLight ? "text-gray-800" : "text-gray-300";
-  const subTitleColor = isLight ? "text-red-700" : "text-red-500";
+  
+  // Кольори для лівої колонки (бордова гама)
+  const textColor = isLight ? "text-black" : "text-red-50";
+  const linkColor = isLight ? "text-red-900" : "text-red-300";
 
   return (
-    <div className="mb-10 border-b-2 border-red-900 pb-6 transition-colors duration-500">
-      <h1 className="text-4xl font-bold text-red-800 mb-2">
-        Solomiia Vorobel
-      </h1>
+    <div className="space-y-4 transition-colors duration-500">
+      {/* Ми прибрали h1, бо воно переїхало в Profile.jsx для правої колонки */}
+      
+      <div className="contact-item">
+        <p className={`text-[11px] uppercase tracking-[0.2em] font-bold mb-1 ${isLight ? 'text-red-800' : 'text-red-400'}`}>
+          Email
+        </p>
+        <a 
+          href="mailto:solomiia.vorobel.kb.2023@lpnu.ua" 
+          className={`text-[13px] break-all hover:underline transition-all ${textColor}`}
+        >
+          solomiia.vorobel.kb.2023@lpnu.ua
+        </a>
+      </div>
 
-      <p className={`${textColor} transition-colors duration-500`}>
-        <span className={`${subTitleColor} font-semibold transition-colors duration-500`}>Email:</span> solomiia.vorobel.kb.2023@lpnu.ua
-      </p>
+      <div className="contact-item">
+        <p className={`text-[11px] uppercase tracking-[0.2em] font-bold mb-1 ${isLight ? 'text-red-800' : 'text-red-400'}`}>
+          Location
+        </p>
+        <p className={`text-[13px] ${textColor}`}>
+          Lviv, Ukraine
+        </p>
+      </div>
 
-      <p className={`${textColor} transition-colors duration-500`}>
-        <span className={`${subTitleColor} font-semibold transition-colors duration-500`}>Location:</span> Lviv, Ukraine
-      </p>
+      <div className="contact-item">
+        <p className={`text-[11px] uppercase tracking-[0.2em] font-bold mb-1 ${isLight ? 'text-red-800' : 'text-red-400'}`}>
+          Social
+        </p>
+        <div className="flex gap-3 mt-1">
+          <a href="#" className={`${linkColor} text-[13px] hover:font-bold transition-all`}>LinkedIn</a>
+          <a href="#" className={`${linkColor} text-[13px] hover:font-bold transition-all`}>GitHub</a>
+        </div>
+      </div>
     </div>
   );
 }
