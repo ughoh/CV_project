@@ -1,83 +1,212 @@
+:root {
+    /* Оновлено: Ніжно-рожевий/бордовий фон для сайдбару */
+    --sidebar-bg-light: #FADBD8; 
+    --main-bg-light: #FFFFFF;
+    
+    /* Нове: Кольори для темної теми */
+    --sidebar-bg-dark: #3e1e1e; /* Дуже темний бордовий */
+    --main-bg-dark: #1a0a0a; /* Майже чорний, з відтінком червоного */
+    
+    /* Текстові змінні */
+    --text-dark: #000000;
+    --text-light: #ffffff;
+    --text-muted: #333333;
+    
+    /* Оновлено: Насичені акцентні кольори */
+    --accent-light: #800000; /* Насичений бордовий для світлої теми */
+    --accent-dark: #FADBD8;  /* Світло-рожевий для темної теми */
+
+    --font-main: 'Inter', sans-serif;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #0b0b0b;
-    color: #e5e5e5;
-    margin: 40px;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+    background-color: #f4f4f4;
+    transition: background-color 0.3s ease;
+}
+
+.cv-container {
+    display: flex;
+    max-width: 900px;
+    margin: 40px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    min-height: 1100px;
+    transition: all 0.3s ease;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 35%;
+    padding: 40px 30px;
+    transition: background-color 0.3s ease;
+}
+
+.section {
+    margin-bottom: 35px;
+}
+
+.section-title {
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    /* Оновлено: Тонка червона лінія */
+    border-bottom: 1px solid rgba(128, 0, 0, 0.2); 
+    padding-bottom: 5px;
+}
+
+.sidebar p, .sidebar li, .education-item {
+    font-size: 13px;
     line-height: 1.6;
 }
 
-h1 {
-    color: #8b0000;
-    font-size: 36px;
-    border-bottom: 2px solid #8b0000;
-    padding-bottom: 10px;
+.contact-list, .skills-list {
+    list-style: none;
+    padding: 0;
 }
 
-h2 {
-    color: #b22222;
-    margin-top: 30px;
-    border-left: 4px solid #8b0000;
-    padding-left: 10px;
-}
-
-p {
-    max-width: 700px;
-}
-
-ul {
-    list-style-type: square;
-    padding-left: 20px;
-}
-
-li {
-    margin-bottom: 6px;
-}
-
-strong {
-    color: #ff4d4d;
-}
-
-hr {
-    border: none;
-    height: 1px;
-    background-color: #8b0000;
-    margin: 25px 0;
-}
-
-footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 2px solid #8b0000;
-}
-
-#storage-output p {
-    max-width: 1000px;
-    word-wrap: break-word;
+.contact-list li {
     margin-bottom: 10px;
 }
 
-#comments-container {
-    margin-top: 20px;
-    max-width: 800px;
+/* Main Content Styling */
+.main-content {
+    width: 65%;
+    padding: 60px 40px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.comment-card {
-    background-color: #141414;
-    border: 1px solid #8b0000;
-    border-radius: 8px;
-    padding: 15px;
+.user-name {
+    font-size: 64px;
+    line-height: 1;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.job-title {
+    font-size: 18px;
+    letter-spacing: 3px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.summary-text {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.section-title-main {
+    font-size: 14px;
+    letter-spacing: 2px;
+    /* Оновлено: Бордова товста лінія */
+    border-bottom: 2px solid #800000; 
+    padding-bottom: 5px;
     margin-bottom: 20px;
 }
 
+.experience-item {
+    margin-bottom: 25px;
+}
+
+.exp-header {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.exp-date {
+    font-size: 12px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.experience-item p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+#theme-toggle {
+    margin-top: 20px;
+    padding: 8px 12px;
+    cursor: pointer;
+    background: transparent;
+    /* Оновлено: Кнопка з бордовим бордером */
+    border: 1px solid #800000;
+    color: #800000;
+    transition: all 0.2s ease;
+}
+
+#theme-toggle:hover {
+    background-color: rgba(128, 0, 0, 0.1);
+}
+
+/* --- Стилі для ТЕМНОЇ теми (бордово-червона) --- */
+/* (За замовчуванням, якщо JS не активує .light-theme) */
+body {
+    background-color: #050000;
+    color: var(--text-light);
+    --current-sidebar-bg: var(--sidebar-bg-dark);
+    --current-main-bg: var(--main-bg-dark);
+    --current-accent: var(--accent-dark);
+}
+
+.cv-container {
+    background: var(--current-main-bg);
+}
+
+.sidebar {
+    background-color: var(--current-sidebar-bg);
+}
+
+.section-title-main {
+    border-color: var(--current-accent);
+}
+
+#theme-toggle {
+    border-color: var(--current-accent);
+    color: var(--current-accent);
+}
+
+/* --- Стилі для СВІТЛОЇ теми (рожево-бордова) --- */
+body.light-theme {
+    background-color: #f4f4f4;
+    color: var(--text-dark);
+    --current-sidebar-bg: var(--sidebar-bg-light);
+    --current-main-bg: var(--main-bg-light);
+    --current-accent: var(--accent-light);
+}
+
+body.light-theme .exp-date {
+    color: #666;
+}
+
+body.light-theme .section-title-main {
+    border-color: #800000; /* Фіксуємо для світлої теми */
+}
+
+/* --- Стилі для карток коментарів (оновлено під бордовий) --- */
+.comment-card {
+    background: rgba(128, 0, 0, 0.05); /* Легкий бордовий відтінок фону */
+    /* Оновлено: Бордова лінія зліва */
+    border-left: 4px solid var(--current-accent);
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
 .comment-card h3 {
-    color: #ff4d4d;
-    margin-bottom: 10px;
+    margin-top: 0;
+    font-size: 16px;
+    /* Оновлено: Акцентний колір для імені */
+    color: var(--current-accent);
 }
 
-.comment-card p {
-    margin: 8px 0;
-}
-
+/* --- Стилі для модального вікна (оновлено) --- */
 .modal {
     display: none;
     position: fixed;
@@ -86,125 +215,45 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0,0,0,0.8);
     justify-content: center;
     align-items: center;
 }
 
 .modal-content {
-    background-color: #141414;
-    color: #e5e5e5;
+    background-color: var(--current-main-bg);
     padding: 30px;
-    border: 2px solid #8b0000;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 500px;
+    border-radius: 8px;
+    width: 400px;
     position: relative;
+    color: var(--text-dark); /* Текст у модалці зазвичай краще темний */
+    border: 2px solid var(--current-accent);
 }
 
-.modal-content h2 {
-    margin-top: 0;
+/* Якщо модалка у світлій темі */
+body.light-theme .modal-content {
+    background-color: #ffffff;
+    color: #000000;
 }
 
-.modal-content label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    color: #ff4d4d;
-}
-
-.modal-content input,
-.modal-content textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #8b0000;
-    border-radius: 6px;
-    background-color: #0b0b0b;
-    color: #e5e5e5;
-    box-sizing: border-box;
-}
-
-.modal-content button {
-    margin-top: 20px;
-    background-color: #8b0000;
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.modal-content button:hover {
-    background-color: #b22222;
+/* Якщо модалка у темній темі */
+body:not(.light-theme) .modal-content {
+    background-color: #2d2d2d;
+    color: #ffffff;
 }
 
 #close-modal {
     position: absolute;
-    top: 15px;
+    top: 10px;
     right: 20px;
     font-size: 28px;
     cursor: pointer;
-    color: #ff4d4d;
+    color: var(--current-accent);
 }
 
-#theme-toggle {
-    background-color: #8b0000;
-    color: #ffffff;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 15px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-#theme-toggle:hover {
-    background-color: #b22222;
-}
-
-body.light-theme {
-    background-color: #f5f5f5;
-    color: #1a1a1a;
-}
-
-body.light-theme h1 {
-    color: #8b0000;
-    border-bottom: 2px solid #8b0000;
-}
-
-body.light-theme h2 {
-    color: #b22222;
-    border-left: 4px solid #8b0000;
-}
-
-body.light-theme strong {
-    color: #b22222;
-}
-
-body.light-theme hr {
-    background-color: #8b0000;
-}
-
-body.light-theme .comment-card {
-    background-color: #ffffff;
-    color: #1a1a1a;
-    border: 1px solid #8b0000;
-}
-
-body.light-theme .modal-content {
-    background-color: #ffffff;
-    color: #1a1a1a;
-}
-
-body.light-theme .modal-content input,
-body.light-theme .modal-content textarea {
-    background-color: #ffffff;
-    color: #1a1a1a;
-    border: 1px solid #8b0000;
-}
-
-body.light-theme footer {
-    border-top: 2px solid #8b0000;
+/* Стилі для виводу інформації про браузер */
+#storage-output p {
+    font-size: 12px;
+    color: gray;
+    margin: 5px 0;
 }
