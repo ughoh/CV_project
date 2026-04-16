@@ -19,9 +19,6 @@ export default function Experience({ theme }) {
               Backend Developer <span className="mx-2 font-light opacity-50">|</span> 
               <span className="text-red-800 dark:text-red-400"> Academic & Personal Projects</span>
             </h3>
-            <span className={`text-[12px] font-medium uppercase tracking-wider ${dateColor}`}>
-              2023 - Present
-            </span>
           </div>
           
           <div className={`text-[14px] leading-relaxed space-y-2 ${contentColor}`}>

@@ -8,37 +8,40 @@ export default function Footer({ theme }) {
 
   const isLight = theme === "light";
   
-  const textColor = isLight ? "text-gray-400" : "text-red-900/40";
-  const copyrightColor = isLight ? "text-gray-600" : "text-red-200/60";
-  const borderColor = isLight ? "border-gray-200" : "border-red-900/30";
+  // Прибираємо сірий (gray-200), замінюємо на бордовий з низькою непрозорістю
+  const textColor = isLight ? "text-red-900/40" : "text-red-900/40";
+  const copyrightColor = isLight ? "text-red-900/60" : "text-red-200/60";
+  const borderColor = isLight ? "border-red-900/10" : "border-red-900/30";
 
   useEffect(() => {
     const info = {
       userAgent: navigator.userAgent,
       platform: navigator.platform
     };
-
-    localStorage.setItem("systemInfo", JSON.stringify(info));
-
-    const savedInfo = JSON.parse(localStorage.getItem("systemInfo"));
-    if (savedInfo) {
-      setSystemInfo(savedInfo);
-    }
+    setSystemInfo(info);
   }, []);
 
   return (
-    <footer className={`mt-16 pt-8 border-t ${borderColor} transition-colors duration-500`}>
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-4">
-        <div className={`${copyrightColor} text-[11px] uppercase tracking-widest font-medium`}>
+    // Додав overflow-hidden щоб нічого не вилазило за межі контейнера
+    <footer className={`mt-16 pt-8 border-t ${borderColor} transition-colors duration-500 overflow-hidden w-full`}>
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-6">
+        
+        {/* Копірайт */}
+        <div className={`${copyrightColor} text-[11px] uppercase tracking-widest font-bold whitespace-nowrap`}>
           © 2026 Solomiia Vorobel
         </div>
 
-        <div className={`${textColor} text-[10px] leading-relaxed max-w-[400px] text-center md:text-right font-mono italic`}>
-          <p>System context: {systemInfo.platform}</p>
-          <p className="opacity-70 truncate" title={systemInfo.userAgent}>
+        {/* Системна інфа - додано break-all та обмеження ширини */}
+        <div className={`${textColor} text-[10px] leading-relaxed max-w-full md:max-w-[300px] text-center md:text-right font-mono italic`}>
+          <p className="mb-1 uppercase tracking-tighter opacity-80">System: {systemInfo.platform}</p>
+          <p 
+            className="opacity-60 break-all line-clamp-2 md:line-clamp-none" 
+            title={systemInfo.userAgent}
+          >
             {systemInfo.userAgent}
           </p>
         </div>
+
       </div>
     </footer>
   );

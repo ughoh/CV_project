@@ -7,7 +7,6 @@ export default function Education({ theme }) {
 
   return (
     <section className="mb-10">
-      {/* Заголовок у стилі Sidebar: малий шрифт, розріджені літери, апперкейс */}
       <h2 className={`text-xs font-bold tracking-[0.2em] uppercase border-b ${borderColor} pb-2 mb-4 ${isLight ? 'text-black' : 'text-white'}`}>
         Education
       </h2>
@@ -18,9 +17,6 @@ export default function Education({ theme }) {
         </p>
         <p className={`text-[12px] leading-relaxed ${secondaryText} font-medium`}>
           Bachelor's Degree in <br /> Cybersecurity
-        </p>
-        <p className="text-[11px] opacity-60 italic mt-1">
-          2023 - 2027
         </p>
       </div>
     </section>
