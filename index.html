@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>CV - Solomiia Vorobel</title>
+</head>
+<body>
+
+    <h1>Solomiia Vorobel</h1>
+    <p><strong>Email:</strong> solomiia.vorobel.kb.2023@lpnu.ua</p>
+    <p><strong>Location:</strong> Lviv, Ukraine</p>
+    <button id="theme-toggle">Switch Theme</button>
+
+    <hr>
+
+    <h2>Profile</h2>
+    <p>
+        University student specializing in Cybersecurity with a strong interest in backend development.
+        Actively improving my Python skills and working on personal and academic projects.
+        Motivated to grow as a professional developer and work with international clients.
+    </p>
+
+    <h2>Education</h2>
+    <p>
+        Lviv Polytechnic National University<br>
+        Bachelor's Degree in Cybersecurity<br>
+    </p>
+
+    <h2>Skills</h2>
+    <ul>
+        <li>Python</li>
+        <li>FastAPI</li>
+        <li>SQL (PostgreSQL, SQLite)</li>
+        <li>Git</li>
+        <li>Basic HTML</li>
+        <li>Information Security Fundamentals</li>
+    </ul>
+
+    <h2>Work Experience</h2>
+    <p>
+        <strong>Academic & Personal Projects:</strong><br>
+        - Developed backend services using FastAPI<br>
+        - Designed and managed databases<br>
+        - Built REST APIs<br>
+        - Performed basic security analysis in lab projects
+    </p>
+
+   <h2>Languages</h2>
+    <ul>
+        <li>Ukrainian – Native</li>
+        <li>English – Upper-Intermediate</li>
+    </ul>
+    
+    <h2>Employer Comments</h2>
+    <div id="comments-container"></div>
+
+    <footer id="browser-info">
+        <h2>Browser Information</h2>
+        <div id="storage-output"></div>
+    </footer>
+
+<div id="feedback-modal" class="modal">
+    <div class="modal-content">
+        <span id="close-modal">&times;</span>
+        <h2>Feedback Form</h2>
+
+        <form action="https://formspree.io/f/xzdkaojr" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

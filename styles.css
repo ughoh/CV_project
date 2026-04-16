@@ -1,0 +1,210 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0b0b0b;
+    color: #e5e5e5;
+    margin: 40px;
+    line-height: 1.6;
+}
+
+h1 {
+    color: #8b0000;
+    font-size: 36px;
+    border-bottom: 2px solid #8b0000;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: #b22222;
+    margin-top: 30px;
+    border-left: 4px solid #8b0000;
+    padding-left: 10px;
+}
+
+p {
+    max-width: 700px;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+strong {
+    color: #ff4d4d;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #8b0000;
+    margin: 25px 0;
+}
+
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #8b0000;
+}
+
+#storage-output p {
+    max-width: 1000px;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+#comments-container {
+    margin-top: 20px;
+    max-width: 800px;
+}
+
+.comment-card {
+    background-color: #141414;
+    border: 1px solid #8b0000;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.comment-card h3 {
+    color: #ff4d4d;
+    margin-bottom: 10px;
+}
+
+.comment-card p {
+    margin: 8px 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #141414;
+    color: #e5e5e5;
+    padding: 30px;
+    border: 2px solid #8b0000;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #ff4d4d;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #8b0000;
+    border-radius: 6px;
+    background-color: #0b0b0b;
+    color: #e5e5e5;
+    box-sizing: border-box;
+}
+
+.modal-content button {
+    margin-top: 20px;
+    background-color: #8b0000;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-content button:hover {
+    background-color: #b22222;
+}
+
+#close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #ff4d4d;
+}
+
+#theme-toggle {
+    background-color: #8b0000;
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#theme-toggle:hover {
+    background-color: #b22222;
+}
+
+body.light-theme {
+    background-color: #f5f5f5;
+    color: #1a1a1a;
+}
+
+body.light-theme h1 {
+    color: #8b0000;
+    border-bottom: 2px solid #8b0000;
+}
+
+body.light-theme h2 {
+    color: #b22222;
+    border-left: 4px solid #8b0000;
+}
+
+body.light-theme strong {
+    color: #b22222;
+}
+
+body.light-theme hr {
+    background-color: #8b0000;
+}
+
+body.light-theme .comment-card {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border: 1px solid #8b0000;
+}
+
+body.light-theme .modal-content {
+    background-color: #ffffff;
+    color: #1a1a1a;
+}
+
+body.light-theme .modal-content input,
+body.light-theme .modal-content textarea {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border: 1px solid #8b0000;
+}
+
+body.light-theme footer {
+    border-top: 2px solid #8b0000;
+}
